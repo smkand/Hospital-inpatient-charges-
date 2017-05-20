@@ -11,7 +11,6 @@ data.info()
 
 for column in ['average_covered_charges', 'average_total_payments', 'average_medicare_payments']:
     data[column] = pd.to_numeric(data[column])
-
 agg_columns = ['mean', 'median', 'var', 'std', 'count', 'min', 'max']
 groupby_mdc = data[['mdc_id', 'average_total_payments']].groupby(by='mdc_id').agg(agg_columns)
 groupby_mdc.columns = [header + '-' + agg_column
